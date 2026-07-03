@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@theme {
+  /* Paleta principal — tono clínico, confiable */
+  --color-primary-50: #eff9f8;
+  --color-primary-100: #d7f0ed;
+  --color-primary-200: #b0e1dc;
+  --color-primary-300: #7ecdc5;
+  --color-primary-400: #48afa6;
+  --color-primary-500: #2c948b;
+  --color-primary-600: #1f7972;
+  --color-primary-700: #1c625d;
+  --color-primary-800: #1a4f4c;
+  --color-primary-900: #17423f;
+
+  /* Acento para CTAs y estados de alerta suave */
+  --color-accent-50: #fff7ed;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
