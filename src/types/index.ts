@@ -9,3 +9,10 @@ export interface Doctor {
   specialty: string;
   bio: string;
 }
+
+export interface ServiceHighlight {
+  slug: string;
+  title: string;
+  image: string;
+  href: string;
+}

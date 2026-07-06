@@ -1,4 +1,9 @@
-import type { Doctor, Service } from "@/types";
+import type { Doctor, Service, ServiceHighlight } from "@/types";
+import banner1 from "@/assets/banner1.jpg";
+import banner2 from "@/assets/banner2.jpg";
+import banner3 from "@/assets/banner3.jpg";
+import banner4 from "@/assets/banner4.jpg";
+import banner5 from "@/assets/banner5.jpg";
 
 export const SERVICES: Service[] = [
   {
@@ -48,5 +53,38 @@ export const DOCTORS: Doctor[] = [
     name: "Dra. Sofía Vega",
     specialty: "Pediatría",
     bio: "Enfocada en el cuidado y desarrollo infantil.",
+  },
+];
+
+export const SERVICE_HIGHLIGHTS: ServiceHighlight[] = [
+  {
+    slug: "medicina-general",
+    title: "Medicina general",
+    image: banner1,
+    href: "/servicios",
+  },
+  {
+    slug: "pediatria",
+    title: "Pediatría",
+    image: banner2,
+    href: "/servicios",
+  },
+  {
+    slug: "cardiologia",
+    title: "Cardiología",
+    image: banner3,
+    href: "/servicios",
+  },
+  {
+    slug: "dermatologia",
+    title: "Dermatología",
+    image: banner4,
+    href: "/servicios",
+  },
+  {
+    slug: "ginecologia",
+    title: "Ginecología",
+    image: banner5,
+    href: "/servicios",
   },
 ];
