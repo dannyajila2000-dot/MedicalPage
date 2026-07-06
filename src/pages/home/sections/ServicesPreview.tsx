@@ -1,32 +1,28 @@
-import { NavLink } from "react-router";
 import { Container } from "@/components/layout/Container";
-import { Card, CardTitle, CardDescription } from "@/components/ui/card";
-import { SERVICES } from "@/lib/data";
+import { Carousel } from "@/components/ui/carousel";
+import { ServiceCard } from "@/pages/home/sections/ServiceCard";
+import { SERVICE_HIGHLIGHTS } from "@/lib/data";
 
 export function ServicesPreview() {
   return (
-    <section className="py-16">
+    <section className="py-16 sm:py-20">
       <Container>
-        <div className="flex items-end justify-between">
-          <h2 className="text-2xl font-semibold text-slate-900">
-            Nuestros servicios
+        <div className="text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary-600">
+            Clínica psicosocial
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+            Servicios &amp; Asesorías
           </h2>
-          <NavLink
-            to="/servicios"
-            className="text-sm font-medium text-primary-700 hover:underline"
-          >
-            Ver todos
-          </NavLink>
         </div>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.slice(0, 3).map((service) => (
-            <Card key={service.slug}>
-              <CardTitle>{service.title}</CardTitle>
-              <CardDescription>{service.description}</CardDescription>
-            </Card>
-          ))}
-        </div>
+        <Carousel
+          className="mt-12"
+          items={SERVICE_HIGHLIGHTS}
+          getKey={(service) => service.slug}
+          autoPlay
+          renderItem={(service) => <ServiceCard service={service} />}
+        />
       </Container>
     </section>
   );
