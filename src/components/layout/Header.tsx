@@ -4,8 +4,19 @@ import { MapPin, ChevronDown } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { NavDropdown } from "@/components/layout/NavDropdown";
 import { buttonVariants } from "@/components/ui/button";
-import { MAIN_MENU, CANAL_DE_CONFIANZA, LOCATION_LABEL, SITE } from "@/lib/constants";
+import {
+  MAIN_MENU,
+  CANAL_DE_CONFIANZA,
+  LOCATION_LABEL,
+  SITE,
+} from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+const LOCATION_SPLIT_INDEX = LOCATION_LABEL.indexOf(",");
+const LOCATION_PRIMARY = LOCATION_LABEL.slice(0, LOCATION_SPLIT_INDEX);
+const LOCATION_SECONDARY = LOCATION_LABEL.slice(
+  LOCATION_SPLIT_INDEX + 1,
+).trim();
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -35,9 +46,16 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-8 md:flex">
-          <div className="flex items-center gap-2 text-base text-slate-600">
-            <MapPin size={20} className="shrink-0 text-primary-600" />
-            <span>{LOCATION_LABEL}</span>
+          <div className="flex items-center gap-2">
+            <MapPin size={36} className="shrink-0 text-primary-600" />
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold text-slate-800">
+                {LOCATION_PRIMARY}
+              </span>
+              <span className="text-base text-primary-600">
+                {LOCATION_SECONDARY}
+              </span>
+            </div>
           </div>
 
           <NavLink to="/contacto" className={buttonVariants({ size: "lg" })}>
@@ -91,7 +109,10 @@ export function Header() {
       >
         <nav className="flex h-full flex-col gap-1 overflow-y-auto px-4 pb-6 pt-28">
           {MAIN_MENU.map((group) => (
-            <details key={group.label} className="group border-b border-slate-100 py-2">
+            <details
+              key={group.label}
+              className="group border-b border-slate-100 py-2"
+            >
               <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-sm font-semibold text-slate-800">
                 {group.label}
                 <ChevronDown
@@ -130,7 +151,10 @@ export function Header() {
           <NavLink
             to="/contacto"
             onClick={() => setOpen(false)}
-            className={cn(buttonVariants({ size: "md" }), "mt-2 justify-center")}
+            className={cn(
+              buttonVariants({ size: "md" }),
+              "mt-2 justify-center",
+            )}
           >
             Contacto
           </NavLink>

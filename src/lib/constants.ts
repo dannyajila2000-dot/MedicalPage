@@ -1,6 +1,7 @@
 export const SITE = {
-  name: "Clínica Psicosocial",
+  name: "Clínica Médica",
   phone: "+593 99 999 9999",
+  whatsapp: "(+593) 962703992",
   email: "contacto@clinicapsicosocial.com",
   address: "Sector La Carolina, Quito, Ecuador",
 };
